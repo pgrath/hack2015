@@ -1,5 +1,6 @@
 package com.example.pat.hack2015;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +44,7 @@ public class ChatActivity extends AppCompatActivity {
 
     }
     public void onOption2(MenuItem menu){
-
+        startActivity(new Intent(this, CenaChatActivity.class));
     }
 
     public void onOption3(MenuItem menu){

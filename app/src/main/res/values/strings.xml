@@ -11,7 +11,7 @@
     <string name="opt1">Refresh</string>
     <string name="opt2">Cenafy</string>
     <string name="opt3">View Images</string>
-
+    <string name="edit_infile">Infile</string>
 
 
 </resources>
