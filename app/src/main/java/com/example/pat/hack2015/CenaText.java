@@ -76,7 +76,7 @@ public class CenaText {
         return prefix + keyWords.get(1) + suffix;
     }
 
-    
+
 
 
 
