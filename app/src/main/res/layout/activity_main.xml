@@ -8,23 +8,24 @@
 
     <!-- Spacing and horizontal rule (line) to separate Button from TextView -->
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        android:orientation="vertical"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.27" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:text="Username" />
+        android:text="@string/edit_username" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Join"
+        android:text="@string/button_join"
         android:id="@+id/button"
+        android:onClick="joinChat"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
