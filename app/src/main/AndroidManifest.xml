@@ -29,6 +29,13 @@
              >
         </activity>
         <activity
+            android:name=".GifCena"
+            android:label="@string/title_activity_chat1"
+            android:theme="@style/AppTheme"
+            >
+
+        </activity>
+        <activity
             android:name=".CenaChatActivity"
             android:label="@string/title_activity_cena_chat"
             android:theme="@style/AppTheme"
