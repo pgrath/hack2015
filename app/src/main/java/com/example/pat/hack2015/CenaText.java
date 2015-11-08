@@ -6,6 +6,7 @@ import java.util.Arrays;
  * Created by ANNIE on 11/7/2015.
  */
 public class CenaText {
+
     List<String> idDict = Arrays.asList("is", "the", "are", "was", "were");
     List<String> suffDict = Arrays.asList("able", "ible", "al", "ial", "ed", "en", "er", "est", "ful", "ic",
             "ing", "ion", "tion", "ation", "ition", "ity", "ty", "ive",
@@ -75,6 +76,54 @@ public class CenaText {
         }
         return prefix + keyWords.get(1) + suffix;
     }
+
+    public void processsSentance(String a)
+    {
+        String[] theInfo=new String[a.length()];
+
+        for(int i=0;i<a.length();i++)
+        {
+            theInfo[i]=a.charAt(i)+"";
+        }
+        boolean done= false;
+        boolean nextWordFlag=false;
+        int prev=0;
+        int count=0;
+        String word;
+        while(!done)
+        {
+            if(count==theInfo.length)
+            {
+                done = true;
+                continue;
+            }
+            boolean wordFin = false;
+            while(!wordFin)
+            {
+                word=theInfo[count];
+                count+=1;
+                if(theInfo[count].equals(" ")||theInfo[count].equals(".")||theInfo[count].equals("!")||theInfo[count].equals("?"))
+                {
+                    if(nextWordFlag)
+                    {
+                        theInfo[count]=theInfo[prev];
+                        prev=count;
+                    }
+                    if(theInfo[count].equals("is")||theInfo[count].equals("the")||theInfo.equals("are")||theInfo.equals("was")||theInfo.equals("were"))
+                    {
+                        nextWordFlag=true;
+                    }
+                }
+            }
+        }
+        for(int i=0;i<theInfo.length;i++)
+        {
+            //tv.append(theInfo[count]);
+        }
+
+    }
+
+
 
 
 
