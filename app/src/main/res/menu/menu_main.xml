@@ -1,6 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".ChatActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/opt1"
+        android:onClick="onOption1"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/opt1"/>
+    <item
+        android:id="@+id/opt2"
+        android:onClick="onOption2"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/opt2"/>
+    <item
+        android:id="@+id/opt3"
+        android:onClick="onOption3"
+        android:showAsAction="never"
+        android:title="@string/opt3"/>
 </menu>

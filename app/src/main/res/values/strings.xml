@@ -7,6 +7,10 @@
     <string name="button_send">Send</string>
     <string name="edit_username">Username</string>
     <string name="title_activity_cena_chat">CenaChatActivity</string>
+    <string name="button_cena">Cenafy</string>
+    <string name="opt1">Refresh</string>
+    <string name="opt2">Cenafy</string>
+    <string name="opt3">View Images</string>
 
 
 
