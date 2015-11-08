@@ -33,6 +33,6 @@
         android:text="@string/button_cena"
         android:id="@+id/button"
         android:layout_gravity="right"
-        android:onClick="processsSentance"/>
+        android:onClick="processsSentance" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.pat.hack2015;
 
+import android.content.res.AssetFileDescriptor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.design.widget.Snackbar;
@@ -16,13 +17,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import android.media.MediaPlayer;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class CenaChatActivity extends AppCompatActivity {
+    final MediaPlayer mp = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cena_chat);
+
+
     }
 
     List<String> idDict = Arrays.asList("is", "the", "are", "was", "were");
@@ -120,6 +128,8 @@ public class CenaChatActivity extends AppCompatActivity {
     }
 
     public void processsSentance(View view) throws IOException {
+
+        mp.stop();
         EditText abc;
         abc = (EditText) findViewById(R.id.editText2);
         TextView tv;
@@ -152,7 +162,41 @@ public class CenaChatActivity extends AppCompatActivity {
         for (count = 0; count < theInfo.size(); count++) {
             tv.append(theInfo.get(count) + " ");
 
+        };
+        if(def.equals(""))
+        {
+            mp.stop();
+            tv.append("YOU CAN'T SEE ME");
+            Toast.makeText(CenaChatActivity.this,
+                    " Entering nothing will result in the theme song playing",
+                    Toast.LENGTH_LONG).show();
+            if (mp.isPlaying()) {
+                mp.reset();
+                mp.stop();
+                mp.pause();
+                mp.prepare();
+                mp.prepareAsync();
+            }
+
+            try {
+                mp.reset();
+                AssetFileDescriptor afd;
+                afd = getAssets().openFd("John_Cena-ringtone-1017874.mp3");
+                mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                mp.prepare();
+                mp.start();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+
+
+            }
+        };
+
         // while(!done)
         // {
         //  if(count==theInfo.size())
@@ -185,6 +229,3 @@ public class CenaChatActivity extends AppCompatActivity {
         //}
 
         //   }
-    }
-
-}
