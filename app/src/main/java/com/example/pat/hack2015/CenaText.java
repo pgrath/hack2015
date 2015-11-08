@@ -1,5 +1,7 @@
 package com.example.pat.hack2015;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * Created by ANNIE on 11/7/2015.
  */
@@ -13,22 +15,22 @@ public class CenaText {
             "in", "il", "ir", "inter", "mid", "mid", "mis", "non",
             "non", "over", "pre", "re", "semi", "sub", "super", "trans",
             "un", "under");
-    char[] vowDict = {'a', 'e', 'i', 'o', 'u'};
+    String vowDict = "aeiou";
     //char[] endDict = {' ', '/0', '/n', '.'};
     List<String> keyWords = Arrays.asList("John", "Cena");
 
-    bool nextWordFlag = true;
+    boolean nextWordFlag = true;
 
     public String getPrefix( String word )
     {
         int count = 0;
-        List<String> genDict = new List<String>();
+        List<String> genDict = new ArrayList<String>();
         for( int i = 0; i < word.length(); i++)
         {
             genDict.clear();
             for (String item : preDict) {
                 if (item.length() > count) {
-                    genDict.append(item.substring(0,count));
+                    genDict.add(item.substring(0,count));
                 }
             }
             for (String item: genDict) {
@@ -44,13 +46,13 @@ public class CenaText {
     public String getSuffix( String word )
     {
         int count = 0;
-        List<String> genDict = new List<String>();
+        List<String> genDict = new ArrayList<String>();
         for( int i = 0; i < word.length(); i++)
         {
             genDict.clear();
             for (String item : preDict) {
                 if (item.length() > count) {
-                    genDict.append(item.substring(-count));
+                    genDict.add(item.substring(-count));
                 }
             }
             for (String item: genDict) {
@@ -63,8 +65,18 @@ public class CenaText {
         return "";
     }
 
+    public String Cenafy( String word )
+    {
+        String prefix = getPrefix( word );
+        String suffix = getSuffix( word );
+        if ( vowDict.contains(word.substring(-suffix.length()))  )
+        {
+            return prefix + keyWords.get(0) + suffix;
+        }
+        return prefix + keyWords.get(1) + suffix;
+    }
 
-
+    
 
 
 
