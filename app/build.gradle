@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    packagingOptions{
+
+
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
@@ -26,3 +35,5 @@ dependencies {
     compile 'com.android.support:design:23.1.0'
     compile 'com.firebase:firebase-client-android:2.4.0+'
 }
+
+

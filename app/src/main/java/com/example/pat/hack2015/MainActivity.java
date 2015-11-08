@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //initialize firebase library
         Firebase.setAndroidContext(this);
+
     }
 //work 
     @Override
@@ -54,7 +56,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void FireTest(){
-        Firebase myFirebaseRef = new Firebase("https://blinding-torch-6521.firebaseio.com/");
+    public static void FireTest(){
+        //make a user, name test
+        User us1 = new User("Test",2005);
+
+        //FireRef is likely redundant. ignore it, remove or comment out of it causes problems
+        Firebase FireRef = new Firebase("https://blinding-torch-6521.firebaseio.com/");
+        //use ref for now, following tutorial
+        Firebase ref = new Firebase("https://blinding-torch-6521.firebaseio.com/");
+
+        //FireRef.child("message").setValue("Do you have data? You'll love Firebase.");
+
+        //shamelessly ripped from firebase tutorial. I'm sorry.
+        Firebase alanRef = ref.child("users").child("alanisawesome");
+        User alan = new User("Alan Turing", 1912);
+        alanRef.setValue(alan);
+
+
+
     }
 }
